@@ -1,12 +1,12 @@
 <!--
  * @Author: your name
  * @Date: 2020-11-28 20:37:53
- * @LastEditTime: 2020-11-30 16:38:36
+ * @LastEditTime: 2020-12-04 16:29:15
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /webpack4/index.html
 -->
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -15,5 +15,679 @@
 </head>
 <body>
     <h1>来了老弟!!!</h1>
+</body>
+</html> -->
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style type="text/css">
+html {
+    color: #000;
+    background: #FFF;
+}
+
+body, div, ul, ol, li, h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+    font-weight: normal;
+}
+
+a {
+    border: 0 none;
+    cursor: pointer;
+    color: #000;
+}
+
+a:link, a:visited {
+    text-decoration: none;
+}
+
+.wrapper {
+    margin: 0 auto;
+    max-width: 668px;
+    height: 100%;
+}
+
+.container {
+    padding-top: 0.1px;
+    background-color: #f8f7f5;
+    border-left: 1px solid #e6e7ec;
+    border-right: 1px solid #e6e7ec;
+    border-bottom: 1px solid #e6e7ec;
+    font-family: 微软雅黑, Tahoma, Verdana, 宋体;
+}
+
+.msgPage {
+    margin: 10px;
+    padding: 10px 10px 0 10px;
+    height: auto;
+    background-color: #fff;
+    border: 1px solid #CED1D8;
+    border-radius: 5px;
+}
+
+.richmedia:hover {
+    cursor: pointer;
+}
+
+.msg-date {
+    display: inline-block;
+    padding-bottom: 5px;
+    font-size: 14px;
+    color: #baccda;
+}
+
+.msg-title {
+    display: block;
+    padding-bottom: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #3a454d;
+}
+
+.first-multiMsg {
+    position: relative;
+}
+
+.first-multiMsg-title {
+    position: absolute;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    width: 100%;
+    bottom: 0px;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.mgLeft {
+    margin-left: 5px;
+}
+
+.first-multiMsg-title h3 {
+    color: #f6f6f6;
+}
+
+.follow-multiMsg {
+    margin-bottom: 10px;
+    padding-top: 10px;
+    border-top: 2px solid #f6f6f6;
+}
+
+.follow-multiMsg:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.multiMsg-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #3a454d;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+
+.follow-multiMsg-pic {
+    display: inline-block;
+    float: right;
+    margin-left: 5px;
+}
+
+.follow-multiMsg-pic img {
+    width: 80px;
+    height: 80px;
+}
+
+.msg-pic {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.singleMsg-pic, .first-multiMsg {
+    max-height: 350px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.singleMsg-pic img, .first-multiMsg img {
+    display: block;
+    width: 100%;
+    min-height: 300px;
+}
+
+.msg-pic img {
+    max-width: 100%;
+    height: auto;
+    min-height: 300px;
+}
+
+.msg-descri {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #3a454d;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+
+.msg-descri a {
+    text-decoration: underline;
+}
+
+.msg_detail {
+    padding-top: 10px;
+    margin-bottom: 10px;
+    border-top: 1px solid #f6f6f6;
+}
+
+.msg_detail a {
+    font-size: 14px;
+    color: #3a454d;
+}
+
+.loading {
+    margin-top: 15px;
+    width: 24px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.voicePlayBox {
+    display: inline-block;
+    width: 146px;
+    padding-left: 20px;
+    height: 36px;
+    cursor: pointer;
+    background-color: #bfe9ff;
+    border: 1px solid #94d1ee;
+    border-radius: 3px;
+    color: #2b7aac;
+    line-height: 34px;
+    margin: 0;
+}
+
+.voicePlayBox:hover {
+    text-decoration: none;
+}
+
+.voicePlayBox:focus {
+    outline: none;
+}
+
+.voicePlayBox .totalTime {
+    float: right;
+    margin-right: 15px;
+}
+
+.voicePlayBox .voice {
+    float: left;
+    height: 36px;
+    width: 35px;
+    overflow: hidden;
+    background: url('https://st0.im.baidu.com/xp/images/sound-play.gif');
+}
+</style>
+<title>历史消息</title>
+</head>
+<body>
+    <div id="msgWrapper" class="wrapper">
+        <div class="container"></div>
+        <img class="loading" src="https://st0.im.baidu.com/xp/images/loading4.gif">
+    </div>
+    <div style="text-align: center; margin-top: 150px; display: none;">
+        查看该链接，需要您先<a href="javascript:void(0)" id="psp_login" style="color: blue; text-decoration: underline;">登录</a>
+    </div>
+    <div id="pspWrapper"></div>
+    <img src="https://st0.im.baidu.com/xp/images/sound-play.gif" style="width: 0px; height: 0px;">
+    <script src="https://st0.im.baidu.com/xp/jquery-1.10.2.min.js"></script>
+    <script type='text/javascript'
+        src='https://passport.baidu.com/passApi/js/uni_login_wrapper.js?cdnversion=591739559936'></script>
+    <script type="text/javascript">
+    console.log('???????')
+                    window.browser = {
+                        versions: function() {
+                            var u = navigator.userAgent, app = navigator.appVersion;
+                            return {
+                                ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/),
+                                android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1,
+                                iPhone: u.indexOf('iPhone') > -1,
+                                iPad: u.indexOf('iPad') > -1
+                            };
+                        }()
+                    };
+                    var hisMsg = {
+                        wapPspHost: "https://wappass.baidu.com",
+                        p: null,
+                        range: 50,
+                        nextPage: null,
+                        tmpArr: [],
+                        isFirstPage: true
+                    };
+
+                    var audio = document.createElement('audio');
+                    audio.setAttribute("onEnded", "onEnded(this)");
+                    audio.setAttribute("type", "audio/mpeg");
+
+                    var isPlaying = false;
+                    function stop() {
+                        if (isPlaying) {
+                            audio.pause();
+                        }
+                        isPlaying = false;
+                    }
+                    function onEnded(e) {
+                        $(".voiceBtn.voice").text('点击播放').removeClass('voice');
+                    }
+                    function play(url) {
+                        audio.setAttribute("oncanplay", "javascript:audio.play();");
+                        audio.setAttribute("src", url);
+                        audio.load();
+                    }
+
+                    function refreshAudio() {
+                        var voiceList = $(".voicePlayBox");
+                        voiceList.click(function() {
+                            return false;
+                        });
+                        voiceList.find('.voiceBtn').removeClass('voice');// 点击播放初始是停止状态
+                        voiceList.unbind().click(function(e) {
+                            var target = $(e.target).parents('.voiceMsg');
+                            var $voiceBtn = target.find('.voiceBtn');
+                            var status = $voiceBtn.hasClass("voice") ? 1 : 0;
+                            if (status == 0) {
+                                $('.voiceBtn').text('点击播放').removeClass('voice');
+                                if (isPlaying) {
+                                    stop();
+                                }
+                                isPlaying = true;
+                                $voiceBtn.text('').addClass('voice');
+                                var soundURL = $(e.target).closest(".voicePlayBox").attr("href");
+                                play(soundURL);
+                            } else {
+                                stop();
+                                $voiceBtn.text('点击播放').removeClass('voice');
+                            }
+                            e.preventDefault();
+                        });
+                    }
+                    function getMsgRenderHtml(msg) {
+                        if (msg.type == 1) {
+                            return getPureTextMsgHtml(msg);
+                        }
+                        if (msg.type == 2) {
+                            return getPureImageMsgHtml(msg);
+                        }
+                        if (msg.type == 3) {
+                            return getVoiceMsgHtml(msg);
+                        }
+                        if (msg.type == 10) {
+                            return getRichMediaMaterialHtml(msg);
+                        }
+                        return null;
+                    }
+
+                    function getPureTextMsgHtml(msg) {
+                        var textItems = msg.msgbody;
+                        var textHtml = '';
+                        $.each(textItems, function(i, item) {
+                            if (item.mType === 'url') {
+                                textHtml += '<a href="' + item.c +'">' + item.c + '</a>';
+                            } else if (item.mType === 'text') {
+                                textHtml += encodeHTML(item.c);
+                            } else if (item.mType === 'face') {
+                                textHtml += '[' + item.n + ']';
+                            }
+                        });
+                        return '<div class="msgPage">' + getDateOfMsg(msg.time) + getDescriptionOfMsg(textHtml)
+                                + '</div>';
+                    }
+
+                    function getPureImageMsgHtml(msg) {
+                        if (msg.msgbody.url) {
+                            return '<div class="msgPage">' + getDateOfMsg(msg.time) + '<p class="msg-pic">'
+                                    + getImageOfMsg(msg.msgbody.url) + '</p></div>';
+                        }
+                    }
+
+                    function getVoiceMsgHtml(msg) {
+                        var mid = msg.msgid;
+                        var url = msg.msgbody.url;
+                        var duration = msg.msgbody.duration;
+                        return '<div class="msgPage">'
+                                + getDateOfMsg(msg.time)
+                                + '<div class="voiceMsg" style="padding-bottom: 10px;height: 38px;"><a id="voice_' + mid + '" class="voicePlayBox" href="' + url + '"><span class="voiceBtn">点击播放</span><span class="totalTime">'
+                                + duration + '</span></a></div></div>';
+                    }
+
+                    function getRichMediaMaterialHtml(msg) {
+                        var msgItems = msg.msgbody;
+                        var msgHtml = '';
+                        if (msgItems.length === 1) {
+                            msgHtml = getSingleMsgHtml(msgItems[0], msg.time);
+                        } else {
+                            msgHtml = getMultiMsgHtml(msgItems, msg.time);
+                        }
+
+                        return msgHtml;
+                    }
+                    function getSingleMsgHtml(msgObj, time) {
+                        var singleMsgHtml = "<div class='msgPage richmedia' onclick= msgDetail(this) cUrl="
+                                + delProtocol(msgObj.contentUrl) + " >";
+                        if (msgObj.time) {
+                            singleMsgHtml += getDateOfMsg(time);
+                        }
+                        if (msgObj.title) {
+                            singleMsgHtml += getTitleOfMsg(msgObj.title);
+                        }
+                        if (msgObj.picurl) {
+                            singleMsgHtml += '<p class="singleMsg-pic">' + getImageOfMsg(msgObj.picurl) + '</p>';
+                        }
+                        if (msgObj.description) {
+                            singleMsgHtml += getDescriptionOfMsg(encodeHTML(msgObj.description));
+                        }
+                        if (msgObj.contentUrl) {
+                            singleMsgHtml += '<div class="msg_detail"><a href="'+msgObj.contentUrl+'">阅读全文</a></div>';
+                        }
+                        singleMsgHtml += '</div>';
+                        return singleMsgHtml;
+                    }
+                    function getMultiMsgHtml(_msgItems, time) {
+                        var multiMsgHtml = '<div class="msgPage richmedia">';
+                        if (_msgItems[0].time) {
+                            multiMsgHtml += getDateOfMsg(time);
+                        }
+                        multiMsgHtml += getFirstOfMultiMsg(_msgItems[0]);
+                        var followItem = _msgItems.slice(1);
+                        $.each(followItem, function(index, val) {
+                            multiMsgHtml += getFollowOfMultiMsg(val);
+                        });
+                        multiMsgHtml += '</div>';
+
+                        return multiMsgHtml;
+                    }
+                    function getFirstOfMultiMsg(firstMsg) {
+                        var firstMsgHtml = '<div class="first-multiMsg" onclick=msgDetail(this) cUrl='
+                                + delProtocol(firstMsg.contentUrl) + '><span class="first-multiMsg-title" >';
+                        firstMsgHtml += '<h3 class="multiMsg-title mgLeft">' + encodeHTML(firstMsg.title)
+                                + '</h3></span>';
+                        firstMsgHtml += getImageOfMsg(firstMsg.picurl);
+                        firstMsgHtml += '</div>';
+
+                        return firstMsgHtml;
+                    }
+                    function getFollowOfMultiMsg(item) {
+                        var followMsgHtml = '<div class="follow-multiMsg" onclick=msgDetail(this) cUrl='
+                                + delProtocol(item.contentUrl) + '><div class="follow-multiMsg-pic">';
+                        followMsgHtml += getImageOfMsg(item.picurl) + '</div>';
+                        followMsgHtml += '<h3 class="multiMsg-title">' + encodeHTML(item.title) + '</h3>';
+                        followMsgHtml += '</div>';
+
+                        return followMsgHtml;
+                    }
+                    function getTitleOfMsg(title) {
+                        return "<h3 class='msg-title'>" + encodeHTML(title) + "</h3>";
+                    }
+
+                    function getDateOfMsg(time) {
+                        var timeStr = parseInt(time);
+                        return '<h4 class="msg-date" >' + getDateShowStringByTime(timeStr) + '</h4>';
+                    }
+
+                    function getDescriptionOfMsg(Descrip) {
+                        return "<p class='msg-descri' >" + Descrip + "</p>";
+                    }
+
+                    function getImageOfMsg(picUrl) {
+                        return '<img src=' + picUrl + ' alt />';
+                    }
+
+                    function getDateShowStringByTime(time) {
+                        var date = new Date(parseInt(time));
+                        return date.getFullYear() + "年" + (date.getMonth() + 1) + "月" + date.getDate() + "日 ";
+                    }
+                    function msgDetail(_this) {
+                        window.location.href = $(_this).attr('curl');
+                    }
+                    function encodeHTML(str) {
+                        return str.replace(/&#10;/g, '\n').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g,
+                                '&gt;').replace(/"/g, '&quot;').replace(/'/g, "&apos;").replace(/\r\n/g, "<br/>")
+                                .replace(/\r/g, "<br/>").replace(/\n/g, "<br/>");
+                    }
+                    function delProtocol(urlStr) {
+                        if (urlStr.indexOf('http:') > -1) {
+                            urlStr = urlStr.replace(/http:/, "");
+                        }
+                        if (urlStr.indexOf('https:') > -1) {
+                            urlStr = urlStr.replace(/https:/, "");
+                        }
+                        return urlStr;
+                    }
+
+                    function isIosBrowser() {
+                        return window.browser.versions.ios || window.browser.versions.iPhone
+                                || window.browser.versions.iPad;
+                    }
+                    function isAndroidBrowser() {
+                        return window.browser.versions.android;
+                    }
+                    function getUrlParam(name) {
+                        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i"), r = window.location.search.substr(
+                                1).match(reg);
+                        if (r != null) {
+                            return unescape(r[2]);
+                        }
+                        return null;
+                    };
+
+                    function listClb(data) {
+                        var dataArr = data.fields;
+                        hisMsg.nextPage = data.next_page;
+                        if ((hisMsg.nextPage == 0 && dataArr.length == 0 && hisMsg.isFirstPage)
+                                || data.result === 'error') {
+                            onNoMsgs();
+                        } else if (hisMsg.nextPage != 0 && dataArr.length < 5) {
+                            ajaxForData(hisMsg.nextPage);
+                            hisMsg.tmpArr = dataArr;
+                        } else {
+                            if (hisMsg.tmpArr.length) {
+                                dataArr = hisMsg.tmpArr.concat(dataArr);
+                                hisMsg.tmpArr.length = 0;
+                            }
+                            $('.loading').remove();
+                            for (var i = 0, len = dataArr.length; i < len; i++) {
+                                $('.container').append(getMsgRenderHtml(dataArr.shift()));
+                            }
+                        }
+                        refreshAudio();
+                        hisMsg.isFirstPage = false;
+                    }
+                    function onNoMsgs() {
+                        $('.loading').remove();
+                        $("#msgWrapper").removeClass("wrapper").css({
+                            "text-align": "center",
+                            "padding": "100px"
+                        }).html("<span>无消息记录</span>");
+                    }
+                    function ajaxForData(page) {
+                        console.log('page')
+                        console.log(page <= 0)
+                        if (page <= 0) {
+                            return;
+                        }
+                        $('.loading').remove();
+                        $('.wrapper').append(
+                                '<img class="loading" src="https://st0.im.baidu.com/xp/images/loading4.gif">');
+                        var dataUrl = "/internal/gmsg/get";
+                        $
+                                .ajax({
+                                    url: dataUrl,
+                                    type: "GET",
+                                    timeout: 10000,
+                                    data: {
+                                        p: hisMsg.p,
+                                        page: page
+                                    },
+                                    error: function(xhr) {
+                                        cleanStyles();
+                                        if (xhr.status == '401') {
+                                            $("body")
+                                                    .html(
+                                                            "<div style='text-align: center;margin-top:150px;'>您无权限查看该页面！</div>");
+                                        } else if (xhr.status == '403') {
+                                            if (!isHiPlatform()) {
+                                                showPspLogin();
+                                            } else {
+                                                onPspFail();
+                                            }
+                                        } else {
+                                            onNoMsgs();
+                                        }
+                                    },
+                                    success: function(data) {
+                                        if (data != "error") {
+                                            listClb(data);
+                                        } else {
+                                            onNoMsgs();
+                                        }
+                                    }
+                                });
+                    }
+
+                    function isHiPlatform() {
+                        if (isIosBrowser()) {
+                            return !!window.WebViewJavascriptBridge;
+                        } else if (isAndroidBrowser()) {
+                            return !!window.BaiduHiJsBridge;
+                        } else {
+                            return false;
+                        }
+                    }
+                    function cleanStyles() {
+                        $("#msgWrapper").remove();
+                    }
+                    function showPspLogin() {
+                        $("#msgWrapper").remove();
+                        if (isIosBrowser() || isAndroidBrowser()) {
+                            $("#psp_login").unbind().click(
+                                    function() {
+                                        location.href = hisMsg.wapPspHost + "/passport/login?tpl=hi&u="
+                                                + encodeURIComponent(top.location.href + "&t=" + Math.random());
+                                    }).parent().show();
+                        } else {
+                            var instance = passport.pop.init({
+                                apiOpt: {
+                                    staticPage: "https://" + top.location.host + '/html/jump.html',
+                                    product: 'hi',
+                                    memberPass: true,
+                                    u: top.location.href,
+                                    safeFlag: 0
+                                },
+                                cache: false,
+                                tangram: true
+                            });
+                            $("#psp_login").unbind().click(function() {
+                                instance.show();
+                            }).parent().show();
+                        }
+                    }
+                    function onPspFail() {
+                        if (window.browser.versions.android) {
+                            window.BaiduHiJsBridge && window.BaiduHiJsBridge.bdPassportFail();
+                        }
+                    }
+                    function showTipOfIsNotBDIM() {
+                        $("body").html("<div style='text-align: center;margin-top:150px;'>您的版本不支持此功能！</div>");
+                    }
+                    function processGmsg() {
+                        console.log('processGmsg')
+                        console.log(hisMsg)
+                        hisMsg.p = 'ceshi'
+                        if (hisMsg.p) {
+                            ajaxForData();
+                            var first = -1;
+                            $(window).scroll(
+                                    function() {
+                                        if (first === 0) {
+                                            return;
+                                        }
+                                        var srollPos = $(window).scrollTop();
+                                        var scrollBottom = $(document).height() - parseFloat($(window).height())
+                                                - parseFloat(srollPos);
+                                        if (0 <= scrollBottom && scrollBottom <= hisMsg.range
+                                                && first != hisMsg.nextPage) {
+                                            first = hisMsg.nextPage;
+                                            ajaxForData(hisMsg.nextPage);
+                                        }
+                                    });
+                        } else {
+                            showTipOfIsNotBDIM();
+                        }
+                    }
+                    function isBDIM() {
+                        if (isIosBrowser()) {
+                            console.log('测试')
+                            console.log(window.WebViewJavascriptBridge && window.WebViewJavascriptBridge.isBDIM)
+                            if (window.WebViewJavascriptBridge && window.WebViewJavascriptBridge.callHandler) {
+                                WebViewJavascriptBridge.callHandler("isBDIM", {
+                                    str: getUrlParam("p")
+                                }, function(responseData) {
+                                    hisMsg.p = responseData;
+                                });
+                            }
+                        } else if (isAndroidBrowser()) {
+                            if (window.BaiduHiJsBridge && window.BaiduHiJsBridge.isBDIM) {
+                                hisMsg.p = window.BaiduHiJsBridge.isBDIM(getUrlParam("p"));
+                            }
+                        } else {
+                            //pc测试用
+                            hisMsg.p = getUrlParam("p2");
+                        }
+                    }
+                    function onBaiduHiJsBridgeReady() {
+                        isBDIM();
+                        console.log('onBaiduHiJsBridgeReady')
+                        console.log(isIosBrowser())
+                        if (isIosBrowser()) {
+                            setTimeout(function() {
+                                processGmsg();
+                            }, 100);
+                        } else {
+                            processGmsg();
+                        }
+                    }
+                    console.log(window.browser.versions)
+                    console.log(!isAndroidBrowser())
+                    if (isIosBrowser()) {
+                        console.log('===')
+                        document.addEventListener('WebViewJavascriptBridgeReady', function() {
+                            console.log('init')
+                            WebViewJavascriptBridge.init();
+                            onBaiduHiJsBridgeReady();
+                        }, false);
+                        //onBaiduHiJsBridgeReady()
+                    } else if (!isAndroidBrowser()) {
+                        console.log('安卓')
+                        onBaiduHiJsBridgeReady();
+                    }
+                </script>
 </body>
 </html>
